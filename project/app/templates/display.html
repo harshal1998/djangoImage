@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        *{
+        font-family:calibri;
+        }
+        h1{
+        font-family:calibri;
+        font-size:40px;
+        text-align:center;
+        }
+        p{
+        display:inline;
+        float:left;
+        margin:10px;
+        margin-bottom:50px;
+        font-family:calibri;
+        font-size:25px;
+        }
+
+        .grid-container {
+          display: grid;
+          grid-template-columns: auto auto auto auto;
+<!--          background-color: #2196F3;-->
+          padding: 10px;
+        }
+
+        button{
+          position: absolute;
+          top: 32px;
+          right: 32px;
+          font-size:20px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>display</title>
+</head>
+<body>
+<div><h1>Saved Images</h1></div>
+<div><a href="{% url 'home' %}"><button style="float: right;"><i class="material-icons">home</i></button></a></div>
+
+
+<div class="grid-container">
+{% for data in data %}
+<p align="center">
+    {{data.name}}<br>
+    <img src="{{data.img.url}}" height="230" width="350"/>
+</p>
+
+{% endfor %}
+    </div>
+</body>
+</html>
